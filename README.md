@@ -71,6 +71,9 @@ Implementa un algoritmo para insertar nodos en un Árbol Binario de Búsqueda.
  2 4 6 8
 ```
 
+**Explicacion Codigo:**
+Al principio debemos validar si el nodo `root` es null para evitar errores, si es el caso retornamos un nuevo Nodo con el valor recibido. Si no es null, validamos si el valor recibido el menor (o igual) al valor del nodo, si lo es, asignamos al hijo derecho del nodo con el nodo que devuelva la clase recursiva, enviando como parametro el el hijo derecho y el valor, caso contrario hacemos los mismo pero para el hijo izquierda. Por ultimo retornamos el nodo.
+
 ---
 
 ### Ejercicio 02: Invertir un Árbol Binario
@@ -93,6 +96,8 @@ Dada la raíz de un árbol binario, el algoritmo devuelve su versión invertida 
   7   2
 9  6 3  1
 ```
+**Explicacion Codigo:**
+El funcionamiento es parecido al metodo insert de un arbol binario. En el caso de recibir el Nodo `root` como null devolvera null. Ademas, se debe instanciar un nodo temporal del nodo derecho (o el izquierdo) llamando a la clase recursiva, despues una vez guardado una instancia temporal, en el nodo izquierda asignamos el nodo que nos devuelva la funcion recursiva enviando como nodo el derecho, y finalmente en el nodo derecho le asignamos la instancia temporal. Por  ultimo, retornamos el nodo.
 
 ---
 
@@ -117,6 +122,9 @@ Devuelve una lista enlazada con los nodos por nivel. Si hay N niveles, se obtien
 1 → 3 → 6 → 9
 ```
 
+**Explicacion Codigo:**
+Al principio, instanciamos una lista de lista de nodos que contendra los niveles con los nodos. Validamos si el Nodo `root` es null, si lo es retornamos la lista vacia. Caso contrario, instanciamos una cola en la cual vamos agregar cada nodo, por lo que al inicio debemos agregar el nodo `root`. Ahora, usamos un while que se ejecuta si la cola no esta vacia, tomamos con el lenght del nivel al size de la cola, ademas de instancia una lista de nodos para el nivel actual. Haremos un for con el size obtenido, en donde en cada pasada, haremos `poll()` para obtener en ultimo y los agregamos a la lista del nivel actual. Validaremos si los hijos son nulos o no, si no lo son, los agregamos a la cola, una vez acabado el for, agregamos la lista del nivel actual a la lista de niveles instanciada al inicio del metodo. Por ultimo, retornamos la lista de niveles.
+
 ---
 
 ### Ejercicio 04: Calcular la Profundidad Máxima
@@ -134,6 +142,9 @@ Calcula la profundidad máxima de un árbol binario (la longitud del camino más
 ```
 
 **Output esperado:** `4`
+
+**Explicacion Codigo:**
+Al igual que los demas metodos, empezamos validando si el nodo `root` recibido es nulo, si lo retornamos `0`, indicando que no tiene altura. Ahora, instanciamos un entero del lado izquierda y le asignamos lo que devuelva el metodo recursivo enviando como nodo el hijo izquierdo, y lo mismo para el lado izquierdo, a cada uno le sumaremos `1` para tomar en cuenta el nodo padre. Por ultimo, calculos que lado es mayor para tomarlo con altura y devolverlo.
 
 ---
 
